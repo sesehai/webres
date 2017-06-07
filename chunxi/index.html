@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- 防止转码 -->
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform ">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="author" content="">
+<title>demo</title>
+<meta name="keywords" content="demo">
+<meta name="description" content="demo">
+<link rel="shortcut icon" type="image/x-icon" href="http://static-s.files.mozhan.com/favicon.ico">
+<!--引导页加载-->
+<link href="chunxi/css/guidestyle.css" rel="stylesheet">
+<link href="chunxi/css/p_mb.css" rel="stylesheet">
+<link href="chunxi/css/bootstrap.css" rel="stylesheet">
+<link href="chunxi/css/public.css" rel="stylesheet">
+<link href="chunxi/css/banner.css" rel="stylesheet">
+<link rel="stylesheet" href="chunxi/css/style.css">
+<link rel="stylesheet" type="text/css" href="chunxi/css/custom.css">
+<!--<style>-->
+<link rel="stylesheet" href="chunxi/css/customer_index_500436123.css">
+<!--        </style>--><!-- 首页必须加载样式的style层，不可以删除 -->
+<!--<script src="http://static.files.mozhan.com/Public/Js/jquery.min.js"></script>-->
+<script href="res/js/jquery_002.js"></script>
+<script href="res/js/share.js"></script><link rel="stylesheet" href="chunxi/css/share_style0_24.css"></head>
+    <body id="body" style="overflow-x:hidden; overflow-y: scroll;outline: none;" class="userBlock  Pagebg">
+                <!--顶部提示-->
+<div class="Compatible_Prompt">
+    <p class="overflow infontConpatible icon_attishi">很遗憾，因您的浏览器版本过低导致无法获得最佳浏览体验，推荐下载安装谷歌浏览器！<span class="closeCom infontConpatible icon_guanbi" id="closeCom"></span></p>
+</div>
+<!-- 顶部 -->
+<div class="common_top nowrapall clearfix">
+    <div class="top-box maxsize" id="top_menu"><div class="top-l welcome"></div><div class="top-r"><a href="http://www.zzwentong.com/Public-login.html?return_url=/" class="login">登录</a>丨<a href="http://www.zzwentong.com/Public-register.html" class="reg">注册</a></div><div class="cl"></div></div>
+</div>
+<!-- @ top -->
+
+<script>
+    var isIE=!!window.ActiveXObject; 
+    var isIE6=isIE&&!window.XMLHttpRequest; 
+    var isIE8=isIE&&!!document.documentMode; 
+    var isIE7=isIE&&!isIE6&&!isIE8; 
+    if (isIE && isIE6 || isIE7 || isIE8){ 
+        $('.Compatible_Prompt').css('height','50px');
+        $('#closeCom').on('click',function(){
+            $('.Compatible_Prompt').css('height','0');
+        });
+    };
+    function logout() {
+        $.ajax({
+            type: "POST",
+            url: "/Public-logout.html",
+            data: "url=" + window.location.href,
+            dataType: "json",
+            success: function(response) {
+                window.location.href = window.location.href;
+            }
+        });
+    }
+    
+    
+</script>
+<div class="container"> 	<div class="row clearfix tpl_one" id="md_tpl_one"> 		<div class="col-md-12 column  column1"> 			<div class="menu" id="md_menu"> 
+            <div id="css_style"><!-- 该div层是用来替换为内页的css的，必须放在这里 --></div>
+			<!-- 菜单开始 -->
+			<div class="menubox jxui">
+				<div class="top maxsize">
+					<div class="Custom_AuxiliaryBg HeadBg"></div>
+					<!-- LOGO -->
+					<div class="logo fl">
+						<div class="Themebg"></div>
+						<div class="Gradient"></div>
+						<!-- pc端logo -->
+	                    <h1 class="logo_name">
+                            <span>文化传播有限公司</span>
+                            <a href="http://www.zzwentong.com/" class="navbar-brand">
+                                <img src="chunxi/img/1ef81600f1333286cf0459e00f0f2668.jpg" alt="郑州文通文化传播有限公司">
+                            </a>
+                        </h1>
+	                    <!-- 手机端logo -->
+	                    <a class="navbar-brand-mobile" href="http://www.zzwentong.com/">
+	                        <img src="chunxi/img/1ef81600f1333286cf0459e00f0f2668.jpg" alt="郑州文通文化传播有限公司" style="">
+	                    </a>
+					</div>
+					<!-- 搜索 -->
+					<div class="search fr">
+                                                <form class="navbar-form" role="search" action="http://www.zzwentong.com/Article-searchAll.html" method="post">
+                        							<div class="icon">
+								<img src="chunxi/img/search.png" alt="">
+							</div>
+							<div class="text">
+								<div class="form-group">
+									<input class="searchinput" name="name" placeholder="请输入关键字..." type="text">
+								</div>
+								<div class="btn-group btn-search-group searchselect">
+									<button type="submit" class="Themebg btn btn-danger btn-search">全站搜索</button>
+									<button type="button" class="Themebg btn btn-danger dropdown-toggle" data-toggle="dropdown"><span class="caret"></span> </button>
+									<ul class="dropdown-menu" role="menu">
+                                        <li><a title="全站搜索" href="javascript:;" data-role="webSearchUrl">全站搜索</a></li>
+										<li><a href="javascript:;" data-role="productSearchUrl">产品搜索</a></li>
+										<li><a href="javascript:;" data-role="articleSearchUrl">文章搜索</a></li>
+									</ul>
+								</div>
+                                <input id="webSearchUrl" value="http://www.zzwentong.com/Article-searchAll.html" type="hidden">
+								<input id="productSearchUrl" value="http://www.zzwentong.com/Product-index.html" type="hidden">
+								<input id="articleSearchUrl" value="http://www.zzwentong.com/Article-index.html" type="hidden">
+							</div>
+						</form>
+					</div>
+					<!-- 清除浮动 -->
+					<div class="cl"></div>
+				</div>
+				<!-- 菜单列表 -->
+				<div class="NavBtn " id="NavBtn">
+                    <span class="icon-bar Themebg"></span>
+                    <span class="icon-bar Themebg"></span>
+                    <span class="icon-bar Themebg"></span>
+                </div>
+				<div class="clear"></div>
+				<div class="menulist Themebg">
+					<div data-design-rel="menu" class="NavBox">
+	                    <ul class="nav navbar-nav">
+        <li class="Themebghover">
+                <a class="overflow Themebghover " href="http://www.zzwentong.com/">
+            <div class="Gradient"></div>
+			<div class="Themebg"></div>
+			<span class="name">网站首页</span>
+        </a>
+        
+                
+            </li>
+        <li class="Themebghover">
+                <a class="overflow Themebghover Triangle" href="http://www.zzwentong.com/Articles-60746.html">
+            <div class="Gradient"></div>
+			<div class="Themebg"></div>
+			<span class="name">毕业论文</span>
+        </a>
+        
+                    <span class="TriangleBtn"></span>
+                
+                <ul>
+                        <li class="Themebg Themebghover">
+                                <a class="overflow" href="http://www.zzwentong.com/Articles-60982.html">
+                    本科生论文
+                </a>
+                            </li>
+                        <li class="Themebg Themebghover">
+                                <a class="overflow" href="http://www.zzwentong.com/Articles-60983.html">
+                    硕士生论文
+                </a>
+                            </li>
+                        <li class="Themebg Themebghover">
+                                <a class="overflow" href="http://www.zzwentong.com/Articles-60984.html">
+                    博士生论文
+                </a>
+                            </li>
+                    </ul>
+            </li>
+        <li class="Themebghover">
+                <a class="overflow Themebghover Triangle" href="http://www.zzwentong.com/Articles-60747.html">
+            <div class="Gradient"></div>
+			<div class="Themebg"></div>
+			<span class="name">专利服务</span>
+        </a>
+        
+                    <span class="TriangleBtn"></span>
+                
+                <ul>
+                        <li class="Themebg Themebghover">
+                                <a class="overflow" href="http://www.zzwentong.com/Articles-60749.html">
+                    专利撰写
+                </a>
+                            </li>
+                        <li class="Themebg Themebghover">
+                                <a class="overflow" href="http://www.zzwentong.com/Articles-60750.html">
+                    专利申请
+                </a>
+                            </li>
+                        <li class="Themebg Themebghover">
+                                <a class="overflow" href="http://www.zzwentong.com/Articles-60748.html">
+                    专利转让
+                </a>
+                            </li>
+                    </ul>
+            </li>
+        <li class="Themebghover">
+                <a class="overflow Themebghover Triangle" href="http://www.zzwentong.com/Articles-60249.html">
+            <div class="Gradient"></div>
+			<div class="Themebg"></div>
+			<span class="name">职称论文</span>
+        </a>
+        
+                    <span class="TriangleBtn"></span>
+                
+                <ul>
+                        <li class="Themebg Themebghover">
+                                <a class="overflow" href="http://www.zzwentong.com/Articles-60985.html">
+                    论文写作
+                </a>
+                            </li>
+                        <li class="Themebg Themebghover">
+                                <a class="overflow" href="http://www.zzwentong.com/Articles-60248.html">
+                    期刊发表
+                </a>
+                            </li>
+                    </ul>
+            </li>
+        <li class="Themebghover">
+                <a class="overflow Themebghover " href="http://www.zzwentong.com/Articles-64914.html">
+            <div class="Gradient"></div>
+			<div class="Themebg"></div>
+			<span class="name">期刊知识</span>
+        </a>
+        
+                
+            </li>
+        <li class="Themebghover">
+                <a class="overflow Themebghover " href="http://www.zzwentong.com/SignPage-detail-id-611610.html">
+            <div class="Gradient"></div>
+			<div class="Themebg"></div>
+			<span class="name">付款方式</span>
+        </a>
+        
+                
+            </li>
+        <li class="Themebghover">
+                <a class="overflow Themebghover " href="http://www.zzwentong.com/Contact.html">
+            <div class="Gradient"></div>
+			<div class="Themebg"></div>
+			<span class="name">联系我们</span>
+        </a>
+        
+                
+            </li>
+        <div class="cl"></div>
+</ul>
+	                    <!-- 所有模板导航必须在这个文件里面 -->
+	                </div>
+	                <div class="NavBoxPublic ThemeFborder" id="NavBoxPublic">
+	                    <ul class="navPublic">
+        <li>
+                <a class="Themefont " href="http://www.zzwentong.com/">
+            网站首页
+        </a>
+        
+                
+            </li>
+        <li>
+                <a class="Themefont Triangle" href="http://www.zzwentong.com/Articles-60746.html">
+            毕业论文
+        </a>
+        
+                    <span class="TriangleBtn"></span>
+                
+                <ul class="Themebg">
+                        <li class="Themebghover">
+                                <a class="" href="http://www.zzwentong.com/Articles-60982.html">
+                    本科生论文
+                </a>
+                            </li>
+                        <li class="Themebghover">
+                                <a class="" href="http://www.zzwentong.com/Articles-60983.html">
+                    硕士生论文
+                </a>
+                            </li>
+                        <li class="Themebghover">
+                                <a class="" href="http://www.zzwentong.com/Articles-60984.html">
+                    博士生论文
+                </a>
+                            </li>
+                    </ul>
+            </li>
+        <li>
+                <a class="Themefont Triangle" href="http://www.zzwentong.com/Articles-60747.html">
+            专利服务
+        </a>
+        
+                    <span class="TriangleBtn"></span>
+                
+                <ul class="Themebg">
+                        <li class="Themebghover">
+                                <a class="" href="http://www.zzwentong.com/Articles-60749.html">
+                    专利撰写
+                </a>
+                            </li>
+                        <li class="Themebghover">
+                                <a class="" href="http://www.zzwentong.com/Articles-60750.html">
+                    专利申请
+                </a>
+                            </li>
+                        <li class="Themebghover">
+                                <a class="" href="http://www.zzwentong.com/Articles-60748.html">
+                    专利转让
+                </a>
+                            </li>
+                    </ul>
+            </li>
+        <li>
+                <a class="Themefont Triangle" href="http://www.zzwentong.com/Articles-60249.html">
+            职称论文
+        </a>
+        
+                    <span class="TriangleBtn"></span>
+                
+                <ul class="Themebg">
+                        <li class="Themebghover">
+                                <a class="" href="http://www.zzwentong.com/Articles-60985.html">
+                    论文写作
+                </a>
+                            </li>
+                        <li class="Themebghover">
+                                <a class="" href="http://www.zzwentong.com/Articles-60248.html">
+                    期刊发表
+                </a>
+                            </li>
+                    </ul>
+            </li>
+        <li>
+                <a class="Themefont " href="http://www.zzwentong.com/Articles-64914.html">
+            期刊知识
+        </a>
+        
+                
+            </li>
+        <li>
+                <a class="Themefont " href="http://www.zzwentong.com/SignPage-detail-id-611610.html">
+            付款方式
+        </a>
+        
+                
+            </li>
+        <li>
+                <a class="Themefont " href="http://www.zzwentong.com/Contact.html">
+            联系我们
+        </a>
+        
+                
+            </li>
+    </ul>
+
+	                    <!-- 所有模板导航必须在这个文件里面 -->
+	                </div>
+	                <div class="NavBoxBg" id="NavBoxBg">
+	                    <div id="NavBoxBtn"></div>
+	                </div>
+				</div>
+			</div>
+			<!-- 菜单结束 -->
+            </div> 		</div> 	</div> 	<div class="row clearfix tpl_two" id="md_tpl_two"> 		<div class="col-md-12"> 			<div class="column column1"> 			</div> 			<div class="col-md-12 column column1"> 				<div id="md_banner" class="banner">		<div class="bannerbox ">
+			<div class="maxsize">  
+				<div data-design-rel="banner" class="carousel slide" id="myCarousel">
+					<div class="bannerEffect" id="pc_banner_content">
+	<div class="fullwidthbanner-container">
+		<div class="fullwidthbanner tp-simpleresponsive hovered" style="height: 322px;">
+			<ul>
+								<li data-transition="slideleft" data-slotamount="15" data-masterspeed="300" style="visibility: visible; left: 0px; top: 0px; z-index: 20; opacity: 1;">
+													<div class="slotholder"><img src="chunxi/img/9502b52177eb18cf69917d9a51e50566.jpg" alt="" class="defaultimg" style="width: 1030px; height: 322px; position: absolute; top: 0px; opacity: 1;"></div>
+								</li>
+							</ul>
+		<div class="tp-loader" style="display: none;"></div><div class="tp-bannertimer" style="visibility: hidden; width: 0%;"></div></div>
+	</div>
+</div>
+<div class="bannerEffect" id="mobile_banner_content" data-type="2">
+	<div class="fullwidthbanner-container" style="">
+		<div class="fullwidthbanner2 tp-simpleresponsive" style="height: 0px;">
+			<ul>
+								<li data-transition="slideleft" data-slotamount="15" data-masterspeed="300" style="visibility: visible; left: 0px; top: 0px; z-index: 20; opacity: 1;">
+								<div class="slotholder"><img src="chunxi/img/9502b52177eb18cf69917d9a51e50566.jpg" alt="" class="defaultimg" style="height: 0px; position: absolute; top: 0px; width: 100px; opacity: 1;"></div>
+				</li>
+							</ul>
+		<div class="tp-loader"></div><div class="tp-bannertimer" style="visibility: hidden; width: 0%;"></div></div>
+	</div>
+</div>
+
+				</div>  
+				<div class="bannershadow"></div>
+			</div>
+		</div>
+		</div> 			</div> 		</div> 	</div> 	<div class="row clearfix tpl_four" id="md_tpl_four"> 		<div class="row column column1"> 			<div class="row clearfix tpl_five" id="md_tpl_five"> 				<div class="jxui"> 					<div class="maxsize"> 						<div class="col-md-8 column column1"> 							<div class="article" id="md_article" dataid="60746"> 
+			<!-- 文章列表开始 -->
+			<div id="right">
+				<div class="articles" id="">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow" data-design-rel="article">
+								毕业论文
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Articles-60746.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+					</div>
+					<div class="line"><span class="Themebg"></span></div>
+					<div class="content">
+						<ul class="caselist nowarpall">
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-691802.html">关于研究生学位论文的有关规定</a><span>2017-01-06</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611402.html">本科生论文的格式与基本要求</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611226.html">本科生毕业论文写作普遍存在的四个问题</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611232.html">硕士毕业论文的基本要求</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611243.html">硕士学位论文格式与基本规范</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611264.html">中国各高校博士毕业论文发表要求</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611266.html">一些牛人的博士毕业论文</a><span>2016-08-18</span></li>
+													</ul>
+					</div>
+				</div>
+				<!-- 联系 -->
+				<div class="contactus">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow">
+								联系我们
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Company-contact.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+						<div class="line"><span class="Themebg"></span></div>
+						<div class="content">
+							<a href="javascript:vido(0)" onclick="window.location.href='mailto:120581375@qq.com'">
+								<div class="mod fl Themebg" id="icon_1"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Contact.html">
+								<div class="mod fl Themebg" id="icon_2"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Lbs.html">
+								<div class="mod fl Themebg" id="icon_3"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Feedback-index.html">
+								<div class="mod fl Themebg" id="icon_4"></div>
+							</a>
+							<div class="cl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 联系结束 -->
+			<!-- 文章列表结束 -->
+			 </div> 							<div class="article" id="md_article" dataid="60249"> 
+			<!-- 文章列表开始 -->
+			<div id="right">
+				<div class="articles" id="">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow" data-design-rel="article">
+								职称论文
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Articles-60249.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+					</div>
+					<div class="line"><span class="Themebg"></span></div>
+					<div class="content">
+						<ul class="caselist nowarpall">
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611648.html">浅析人生与哲学课如何培养学生的职业道德素质</a><span>2016-08-19</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611649.html">浅析儒家生态哲学体系的探索与建构</a><span>2016-08-19</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611650.html">浅析索绪尔与胡塞尔语言哲学比较</a><span>2016-08-19</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611651.html">浅析体验哲学视域下的《大学英语综合教程》教学探索</a><span>2016-08-19</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-600925.html">行业十大评选新闻发布会将举行</a><span>2015-10-27</span></li>
+													</ul>
+					</div>
+				</div>
+				<!-- 联系 -->
+				<div class="contactus">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow">
+								联系我们
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Company-contact.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+						<div class="line"><span class="Themebg"></span></div>
+						<div class="content">
+							<a href="javascript:vido(0)" onclick="window.location.href='mailto:120581375@qq.com'">
+								<div class="mod fl Themebg" id="icon_1"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Contact.html">
+								<div class="mod fl Themebg" id="icon_2"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Lbs.html">
+								<div class="mod fl Themebg" id="icon_3"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Feedback-index.html">
+								<div class="mod fl Themebg" id="icon_4"></div>
+							</a>
+							<div class="cl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 联系结束 -->
+			<!-- 文章列表结束 -->
+			 </div> 						</div> 						<div class="col-md-4 column column1"> 							<div class="article" id="md_article" dataid="60747"> 
+			<!-- 文章列表开始 -->
+			<div id="right">
+				<div class="articles" id="">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow" data-design-rel="article">
+								专利服务
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Articles-60747.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+					</div>
+					<div class="line"><span class="Themebg"></span></div>
+					<div class="content">
+						<ul class="caselist nowarpall">
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611249.html">软件产品能申请专利吗？</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611261.html">发明专利申办对象资格</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611262.html">发明专利申请流程</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611263.html">PCT国际专利申请的意义及注意事项</a><span>2016-08-18</span></li>
+													</ul>
+					</div>
+				</div>
+				<!-- 联系 -->
+				<div class="contactus">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow">
+								联系我们
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Company-contact.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+						<div class="line"><span class="Themebg"></span></div>
+						<div class="content">
+							<a href="javascript:vido(0)" onclick="window.location.href='mailto:120581375@qq.com'">
+								<div class="mod fl Themebg" id="icon_1"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Contact.html">
+								<div class="mod fl Themebg" id="icon_2"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Lbs.html">
+								<div class="mod fl Themebg" id="icon_3"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Feedback-index.html">
+								<div class="mod fl Themebg" id="icon_4"></div>
+							</a>
+							<div class="cl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 联系结束 -->
+			<!-- 文章列表结束 -->
+			 </div> 							<div class="article" id="md_article" dataid="60729"> 
+			<!-- 文章列表开始 -->
+			<div id="right">
+				<div class="articles" id="">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow" data-design-rel="article">
+								教育类刊物
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Articles-60729.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+					</div>
+					<div class="line"><span class="Themebg"></span></div>
+					<div class="content">
+						<ul class="caselist nowarpall">
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611162.html">《理科爱好者》《理科爱好者》杂志 编辑部</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611420.html">《黑河教育》杂志-《黑河教育》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611421.html">《中学化学》杂志-《中学化学》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611422.html">《课外语文》杂志-《课外语文》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611097.html">《读写算》杂志-《读写算》杂志社</a><span>2016-08-17</span></li>
+													</ul>
+					</div>
+				</div>
+				<!-- 联系 -->
+				<div class="contactus">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow">
+								联系我们
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Company-contact.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+						<div class="line"><span class="Themebg"></span></div>
+						<div class="content">
+							<a href="javascript:vido(0)" onclick="window.location.href='mailto:120581375@qq.com'">
+								<div class="mod fl Themebg" id="icon_1"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Contact.html">
+								<div class="mod fl Themebg" id="icon_2"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Lbs.html">
+								<div class="mod fl Themebg" id="icon_3"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Feedback-index.html">
+								<div class="mod fl Themebg" id="icon_4"></div>
+							</a>
+							<div class="cl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 联系结束 -->
+			<!-- 文章列表结束 -->
+			 </div> 						</div> 						<div class="cl"> 						</div> 					</div> 				</div> 			</div> 			<div class="about" id="md_about">			<!-- 关于我们开始 -->
+			<div class="jxui about">
+				<div class="maxsize">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao"></div>
+							<div class="text Themefont overflow" data-design-rel="about">
+								公司简介
+							</div>
+						</div>
+					</div>
+					<div class="line"><span class="Themebg"></span></div>
+					<div class="aboutcontainer clearfix">
+						<div class="face">
+							<img src="chunxi/img/fd12acbfb77950d2d1fef82999673663.jpg" alt="">
+						</div>
+						<div class="info">
+							<div class="aboutText"><p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)"><span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px"><span style="font-family:宋体">郑州文通文化传播公司</span>成
+立以来，经过长期的深厚积累，沉稳发展，现在已经成为一支拥有强大教授及博士写作团队和编辑团队的颇具规模的论文指导和论文发表机构，主要提供各类专业的
+博士论文，硕士论文以及本专科论文指导，代发职称论文（省级期刊，期刊，核心期刊，及某些大学学报）等相关论文服务(国内外论文资料代查,英文摘要翻译
+等)。论文服务科目主要包含：经济管理、人文社科、医学化工类、计算机应用与技术、软件工程、工程硕士、机械与动力工程、建筑土木、房地产、管理项目、经
+济金融会计、英语、教育教学、心理学、历史等等。我们拥有强大的写作团队，经过长期累积，指导老师有丰富的写作经验，并且与我们合作的老师主要来自于国内
+211，985的大学。</span></p><p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)"><span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px"><span style="font-family:宋体">在论文指导方面，我们经过长时间的良好发展，积聚了大量的外部人才和资源，目前专门辅导老师达百余位。我们承诺论文指导到通过为止，我们不会让您的论文后期无人负责，您只需要把论文交给我们，其他的只需反馈老师的指导意见即可。</span></span></p><p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)"><span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px"><span style="font-family:宋体">在发表论文方面，本站现在已拥有多家省级，，核心级期刊代理权；从</span>起步到现在已建立了完善的发表体系，无一不显示出了严谨，求实的态度。时刻想着为客户提供最优秀的文章，保证客户按时发表，顺利毕业取得学位；也为晋升职称的客户推荐最适合的发表期刊，我们以实际效果赢得了客户好的好评；多年品质保证，是一家值得信赖的论文发表机构。</span></p><p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)"><span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px"><span style="font-family:宋体">此外，所有导师最不能容忍的就是学生抄袭，在这里，我们郑重承诺我们的论文都是根据您的要求制定，确保论文原创，质量有保证，并且提供修改服务直到您的指导老师认可通过为止；通过后，我们将立即销毁，保证论文版权属于您自己所有。</span></span></p><p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)"><span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px"><span style="font-family:宋体">耐
+心的服务是售后的基本素质，快捷的回复是售后的工作效率，及时的沟通是售后的认真态度。在论文写作过程中，每一位客户都可以随时查询论文进度，并进行意见
+反馈，沟通交流，我们会以最快的时间给您一个满意的答复。如果您选择我们为您的毕业论文，职称论文保驾护航，最明智的选择，我们将问您排忧解难，为您提供
+业内最优质的论文指导和论文发表服务！</span></span></p><p><br></p></div>
+							<a href="http://www.zzwentong.com/About.html" class="Themebg Themebghover btn btn-more" role="button">查看详情</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 关于我们结束 -->
+			</div> 		</div> 	</div> 	<div class="row clearfix tpl_five" id="md_tpl_five"> 		<div class="jxui"> 			<div class="maxsize"> 				<div class="col-md-8 column column1"> 					<div class="article" id="md_article" dataid="60740"> 
+			<!-- 文章列表开始 -->
+			<div id="right">
+				<div class="articles" id="">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow" data-design-rel="article">
+								学报类刊物
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Articles-60740.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+					</div>
+					<div class="line"><span class="Themebg"></span></div>
+					<div class="content">
+						<ul class="caselist nowarpall">
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611423.html">《佳木斯教育学院学报》征稿信息</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611424.html">《吉林省教育学院学报》征稿信息</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611425.html">《兰州教育学院学报》杂志-《兰州教育学院学报》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611211.html">《南昌教育学院学报》征稿信息</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611212.html">《吉林广播电视大学学报》杂志</a><span>2016-08-18</span></li>
+													</ul>
+					</div>
+				</div>
+				<!-- 联系 -->
+				<div class="contactus">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow">
+								联系我们
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Company-contact.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+						<div class="line"><span class="Themebg"></span></div>
+						<div class="content">
+							<a href="javascript:vido(0)" onclick="window.location.href='mailto:120581375@qq.com'">
+								<div class="mod fl Themebg" id="icon_1"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Contact.html">
+								<div class="mod fl Themebg" id="icon_2"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Lbs.html">
+								<div class="mod fl Themebg" id="icon_3"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Feedback-index.html">
+								<div class="mod fl Themebg" id="icon_4"></div>
+							</a>
+							<div class="cl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 联系结束 -->
+			<!-- 文章列表结束 -->
+			 </div> 					<div class="article" id="md_article" dataid="60732"> 
+			<!-- 文章列表开始 -->
+			<div id="right">
+				<div class="articles" id="">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow" data-design-rel="article">
+								医学类刊物
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Articles-60732.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+					</div>
+					<div class="line"><span class="Themebg"></span></div>
+					<div class="content">
+						<ul class="caselist nowarpall">
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611177.html">《中国中医药现代远程教育》杂志-《中国中医药现代远程教育》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611180.html">《中外医学研究》杂志-《中外医学研究》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611440.html">《医学信息》杂志-《医学信息》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611441.html">《大家健康》杂志-《大家健康》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611442.html">《健康必读》杂志-《健康必读》杂志社</a><span>2016-08-18</span></li>
+													</ul>
+					</div>
+				</div>
+				<!-- 联系 -->
+				<div class="contactus">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow">
+								联系我们
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Company-contact.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+						<div class="line"><span class="Themebg"></span></div>
+						<div class="content">
+							<a href="javascript:vido(0)" onclick="window.location.href='mailto:120581375@qq.com'">
+								<div class="mod fl Themebg" id="icon_1"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Contact.html">
+								<div class="mod fl Themebg" id="icon_2"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Lbs.html">
+								<div class="mod fl Themebg" id="icon_3"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Feedback-index.html">
+								<div class="mod fl Themebg" id="icon_4"></div>
+							</a>
+							<div class="cl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 联系结束 -->
+			<!-- 文章列表结束 -->
+			 </div> 				</div> 				<div class="col-md-4 column column1"> 					<div class="article" id="md_article" dataid="60741"> 
+			<!-- 文章列表开始 -->
+			<div id="right">
+				<div class="articles" id="">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow" data-design-rel="article">
+								新闻类刊物
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Articles-60741.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+					</div>
+					<div class="line"><span class="Themebg"></span></div>
+					<div class="content">
+						<ul class="caselist nowarpall">
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611427.html">《新闻世界》杂志-《新闻世界》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611428.html">《今传媒》杂志-《今传媒》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611430.html">《媒体时代》杂志-《媒体时代》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611213.html">《新闻窗》杂志-《新闻窗》杂志社</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611214.html">《视听》杂志-《视听》杂志社</a><span>2016-08-18</span></li>
+													</ul>
+					</div>
+				</div>
+				<!-- 联系 -->
+				<div class="contactus">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow">
+								联系我们
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Company-contact.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+						<div class="line"><span class="Themebg"></span></div>
+						<div class="content">
+							<a href="javascript:vido(0)" onclick="window.location.href='mailto:120581375@qq.com'">
+								<div class="mod fl Themebg" id="icon_1"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Contact.html">
+								<div class="mod fl Themebg" id="icon_2"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Lbs.html">
+								<div class="mod fl Themebg" id="icon_3"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Feedback-index.html">
+								<div class="mod fl Themebg" id="icon_4"></div>
+							</a>
+							<div class="cl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 联系结束 -->
+			<!-- 文章列表结束 -->
+			 </div> 					<div class="article" id="md_article" dataid="60734"> 
+			<!-- 文章列表开始 -->
+			<div id="right">
+				<div class="articles" id="">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow" data-design-rel="article">
+								北大核心类
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Articles-60734.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+					</div>
+					<div class="line"><span class="Themebg"></span></div>
+					<div class="content">
+						<ul class="caselist nowarpall">
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611432.html">《中国药房》杂志社征稿</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611433.html">《电子器件》</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611434.html">《教育探索》</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611185.html">《现代化工》简介</a><span>2016-08-18</span></li>
+														<li><a class="Themetxthover" href="http://www.zzwentong.com/Article-detail-id-611186.html">《激光杂志》</a><span>2016-08-18</span></li>
+													</ul>
+					</div>
+				</div>
+				<!-- 联系 -->
+				<div class="contactus">
+					<div class="title">
+						<div class="con">
+							<div class="icon iconfont2 Themefont icon-mao">
+							</div>
+							<div class="text Themefont overflow">
+								联系我们
+							</div>
+							<div class="more">
+								<a class="Themetxthover" href="http://www.zzwentong.com/Company-contact.html">更多&gt;&gt;</a>
+							</div>
+						</div>
+						<div class="line"><span class="Themebg"></span></div>
+						<div class="content">
+							<a href="javascript:vido(0)" onclick="window.location.href='mailto:120581375@qq.com'">
+								<div class="mod fl Themebg" id="icon_1"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Contact.html">
+								<div class="mod fl Themebg" id="icon_2"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Lbs.html">
+								<div class="mod fl Themebg" id="icon_3"></div>
+							</a>
+							<a href="http://www.zzwentong.com/Feedback-index.html">
+								<div class="mod fl Themebg" id="icon_4"></div>
+							</a>
+							<div class="cl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 联系结束 -->
+			<!-- 文章列表结束 -->
+			 </div> 				</div> 				<div class="cl"> 				</div> 			</div> 		</div> 	</div> 	<div class="row clearfix tpl_footers" id="md_tpl_footers"> 		<div class="jxui"> 			<div class="links column column1"> 				<div class="friendLink jxui" id="md_friendLink">			<div class="Themebg friendBox">
+				<div class="maxsize">
+					<div class="con">
+	                      					</div>
+				</div>
+			</div>
+			 </div> 			</div> 			<div class="foot column column1"> 				<div class="footers" id="md_footers">           
+			<div class="maxsize">
+				<div class="con">
+                    <div class="clearfix">
+    <div class="footersInformation">
+        <p><br></p><style type="text/css">.contactus{display: none;}.menu .nav >li{width:14%;}
+.article .title .con{position:relative;}
+.menu .nav > li .Triangle:after{border-top:0px solid #000;}</style>
+        <p>
+    <!--    CopyRight © All Right Reserved 版权所有:-->
+        CopyRight © 版权所有:
+        <a title="郑州文通文化传播有限公司" class="Themefont" href="http://www.zzwentong.com/">郑州文通文化传播有限公司</a>
+                <a title="网站地图" class="Themefont" href="http://www.zzwentong.com/Sitemap.html">网站地图</a>
+        <a title="xml" class="Themefont" href="http://www.zzwentong.com/Mapxml" target="_blank">XML</a>
+            </p>
+	<p>
+	</p>
+        		    </div>
+	
+    <div class="qr">
+                                                        <img src="data:;base64,iVBORw0KGgoAAAANSUhEUgAAAFEAAABRAQMAAACQQdh1AAAABlBMVEX///8AAABVwtN+AAAA10lEQVQokY3SsQ2EMAwFUCOKdLCApayRLivBAhcmCCvRZQ0kJqBLEeFz7k5UsQ8LRY8q33YAHpQl6heHgYpsBGNX2ieG7JD6y5SZdNvo/xrmjLrB4OTvDE1zfpzT3UvTtboN71m0bCnRSX10u2wA1y9gIyjmIfCsiHKRjeN2XIbipxfJ4XNpSEXx4I4z87krHskuntbvvYIHV+cwONTsoeP8CWTXX15KR4rrXsa63yKb9wsvg11GxaEulwt0z5mzFd2Tp2hQMb//xdR4sjk/fzD+emn6Qb0BvGVCVHGgdOIAAAAASUVORK5CYII=">
+                                            <br>
+        <div class="Attention">扫一扫访问移动端</div>
+        <div class="Big">
+                                            <img src="data:;base64,iVBORw0KGgoAAAANSUhEUgAAAFEAAABRAQMAAACQQdh1AAAABlBMVEX///8AAABVwtN+AAAA10lEQVQokY3SsQ2EMAwFUCOKdLCApayRLivBAhcmCCvRZQ0kJqBLEeFz7k5UsQ8LRY8q33YAHpQl6heHgYpsBGNX2ieG7JD6y5SZdNvo/xrmjLrB4OTvDE1zfpzT3UvTtboN71m0bCnRSX10u2wA1y9gIyjmIfCsiHKRjeN2XIbipxfJ4XNpSEXx4I4z87krHskuntbvvYIHV+cwONTsoeP8CWTXX15KR4rrXsa63yKb9wsvg11GxaEulwt0z5mzFd2Tp2hQMb//xdR4sjk/fzD+emn6Qb0BvGVCVHGgdOIAAAAASUVORK5CYII=" style="">
+                
+                    </div>
+    </div>
+</div>
+				</div>
+			</div>
+			
+			 <script type="text/javascript" src="chunxi/js/500436123.json"></script></div> 			</div> 		</div> 	</div> </div><!--banner效果插件-->
+<script type="text/javascript" src="chunxi/js/jquery-1.js"></script>
+<script type="text/javascript" src="chunxi/js/jquery.js"></script>
+<script type="text/javascript" src="chunxi/js/banner.js"></script>
+<script>
+    // function getCookie(name) {
+    //     var arr = document.cookie.split("; ");
+    //     for (var i = 0, len = arr.length; i < len; i++) {
+    //         var item = arr[i].split("=");
+    //         if (item[0] == name) {
+    //             return item[1];
+    //         }
+    //     }
+    //     return "";
+    // }
+    // var is_use = 
+    // if (getCookie('is_animate') == 1 || is_use != 1) {
+    //     $.getScript('http://static.files.mozhan.com/Public/Js/Effect/jquery-1.8.3.min.js');
+    //     $.getScript('http://static.files.mozhan.com/Public/Js/Effect/jquery.banner.revolution.min.js');
+    //     // $(document).ready(function(){
+    //     $.getScript('http://static.files.mozhan.com/Public/Js/Effect/banner.js');
+    //     // });
+    // }
+</script>
+
+<!--end-->
+<!--手机端增加底部按钮-->
+<div class="phone-menu0"><!--phone-menu0为黑色版，phone-menu1为灰白色版-->
+    <ul>
+        <li><a title="电话咨询" href="tel:15393703599"><i class="icon1"></i>电话咨询</a></li>
+        <li><a title="短信咨询" href="sms:15393703599"><i class="icon2"></i>短信咨询</a></li>
+        <li><a title="在线咨询" href="http://www.zzwentong.com/Feedback-index-uid-500436123-isAdd-1.html"><i class="icon3"></i>在线咨询</a></li>
+        <li><a title="查看地图" href="http://www.zzwentong.com/Lbs-index.html"><i class="icon4"></i>查看地图</a></li>
+        <li><a id="share" title="查看地图"><i class="icon5"></i>分享</a></li>
+    </ul>
+</div>
+<div class="ShareBoxx" id="ShareBoxx">
+	<div class="ShareBoxBg ShareAni"></div>
+	<div class="ShareBox ShareAni border_box">
+			<h3>分享</h3>
+            <ul class="bdsharebuttonbox bdshare-button-style0-24" data-bd-bind="1496828488833">
+            	<li>
+                    <a class="bds_tsina sina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <!-- 新浪微博 -->
+            	</li>
+            	<li>
+                    <a class="bds_qzone qzong" data-cmd="qzone" title="分享到QQ空间"></a>
+                    <!-- QQ空间 -->
+                </li>
+                <li>
+                    <a class="bds_weixin weix" data-cmd="weixin" title="分享到微信"></a> 
+                    微信
+                </li>
+                <li>
+                    <a class="bds_renren ren" data-cmd="renren" title="分享到人人网"></a> 
+                    <!-- 人人网 -->
+                </li>
+            </ul>
+		<div class="clear"></div>
+		<div class="Cancellation" id="ShareCance">取消</div>
+	</div>
+</div>
+<script>window._bd_share_config={ "common":{ "bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<script>
+	$('#share').on('click',function(){
+		if($('#ShareBoxx').hasClass('ac')){
+			$('#ShareBoxx').removeClass('ac');
+		}else{
+			$('#ShareBoxx').addClass('ac');
+		}
+	});
+	$('.ShareBoxBg').on('click',function(){
+		$('#share').trigger('click');
+	});
+	$('#ShareCance').on('click',function(){
+		$('#share').trigger('click');
+	});
+</script>
+
+<script type="text/javascript" src="chunxi/js/bootstrap.js"></script>
+<script type="text/javascript" src="chunxi/js/page.js"></script>
+<script type="text/javascript" src="chunxi/js/slide.js"></script>
+<script type="text/javascript" src="chunxi/js/sharing.js"></script>
+    <!--简体繁体切换-->
+        <script type="text/javascript" src="chunxi/js/load.js"></script>
+    <!--end-->
+<script type="text/javascript">
+    // window.onload = setCodeValue('s'); //设置简体繁体
+    $(function () {
+        $("img").lazyload({
+            placeholder: 'http://static.files.mozhan.com/Public/Js/LazyLoad/grey.gif',
+            effect: "fadeIn",
+            skip_invisible: false,
+            threshold: 5000
+        });
+    });
+</script>
+
+
+
+
+
+
+<!-- JS储存在User/View/Design/title.html --><div class="common_gototop"><img src="chunxi/img/gototop.png" alt="" style=""></div></body></html>
