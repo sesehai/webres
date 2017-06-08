@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 防止转码 -->
+    <meta name="applicable-device" content="pc,mobile">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform ">
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="">
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <!--引导页加载-->
+    <link href="statics/chunxi/css/guidestyle.css" rel="stylesheet">
+    <link href="statics/chunxi/css/p_mb.css" rel="stylesheet">
+    <link href="statics/chunxi/css/bootstrap.css" rel="stylesheet">
+    <link href="statics/chunxi/css/public.css" rel="stylesheet">
+    <link href="statics/chunxi/css/banner.css" rel="stylesheet">
+    <link rel="stylesheet" href="statics/chunxi/css/style.css">
+    <link rel="stylesheet" type="text/css" href="statics/chunxi/css/custom.css">
+    <!--<style>-->
+    <link rel="stylesheet" href="statics/chunxi/css/customer_index_500436123.css">
+    <!--        </style>--><!-- 首页必须加载样式的style层，不可以删除 -->
+    <script href="statics/chunxi/js/jquery_002.js"></script>
+    <script href="statics/chunxi/js/share.js"></script>
+    <link rel="stylesheet" href="statics/chunxi/css/share_style0_24.css">
+</head>
+<body id="body" style="overflow-x:hidden; overflow-y: scroll;outline: none;" class="userBlock  Pagebg">
+<!--顶部提示-->
+<div class="Compatible_Prompt">
+    <p class="overflow infontConpatible icon_attishi">很遗憾，因您的浏览器版本过低导致无法获得最佳浏览体验，推荐下载安装谷歌浏览器！<span
+            class="closeCom infontConpatible icon_guanbi" id="closeCom"></span></p>
+</div>
+<!-- 顶部 -->
+<div class="common_top nowrapall clearfix">
+    <div class="top-box maxsize" id="top_menu">
+        <div class="top-l welcome"></div>
+        <div class="top-r"><a href="login.php?return_url=/" class="login">登录</a>丨<a
+                href="register.php" class="reg">注册</a></div>
+        <div class="cl"></div>
+    </div>
+</div>
+<!-- @ top -->
+
+<script>
+    var isIE = !!window.ActiveXObject;
+    var isIE6 = isIE && !window.XMLHttpRequest;
+    var isIE8 = isIE && !!document.documentMode;
+    var isIE7 = isIE && !isIE6 && !isIE8;
+    if (isIE && isIE6 || isIE7 || isIE8) {
+        $('.Compatible_Prompt').css('height', '50px');
+        $('#closeCom').on('click', function () {
+            $('.Compatible_Prompt').css('height', '0');
+        });
+    }
+    ;
+    function logout() {
+        $.ajax({
+            type: "POST",
+            url: "logout.html",
+            data: "url=" + window.location.href,
+            dataType: "json",
+            success: function (response) {
+                window.location.href = window.location.href;
+            }
+        });
+    }
+
+
+</script>
