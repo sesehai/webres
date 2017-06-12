@@ -1,0 +1,26 @@
+*.class
+.idea/
+logs
+*.iml
+.DS_Store
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+# *.jar
+*.war
+*.ear
+
+.settings/
+target/
+logs/
+.project
+.classpath
+
+#默认不打开编译后的sql语句输出
+spy.properties
+spy.log
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*

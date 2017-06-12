@@ -1,0 +1,46 @@
+{template "content","header"}
+
+<div class="content-box clearfix">
+    <div class="body-left designStage column column1">
+        <div class="column mb12 column1" id="md_detailArticleClass">
+            <div class="row clearfix info_class_x mb12">
+                <div class="title_n ThemeFborder">
+                    <div class="con">
+                        <div class="icon iconfont2 icon-mao Themefont"></div>
+                        <div class="text Themefont overflow" data-design-rel="detailArticleClass">
+                            资讯分类
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-box">
+                    {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+                    {loop $data $r}
+                    <a title="{$r[catname]}" href="{$r[url]}" class="Themebghover overflow ">{$r[catname]}</a>
+                    {/loop}
+                    {/pc}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="designStage column body-right selected column1">
+        <div id="md_content" class="about mt15 dontclear"><!--面包屑-->
+            <div class="breadCrumb ThemeFborder">
+                <b>您当前的位置：</b><a href="{siteurl($siteid)}">首页</a><em>></em> {catpos($catid)}
+            </div>
+            <!--详情-->
+            <div class="row">
+                <div class="news-nr-box">
+                    <h1 class="title"></h1>
+                    <div class="content">
+                        {$content}
+                    </div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+{template "content","footer"}

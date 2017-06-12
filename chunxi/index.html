@@ -1,584 +1,367 @@
 {template "content","header"}
-<div class="container">
-    <div class="row clearfix tpl_one" id="md_tpl_one">
-        <div class="col-md-12 column  column1">
-            <div class="menu" id="md_menu">
-                <div id="css_style"><!-- 该div层是用来替换为内页的css的，必须放在这里 --></div>
-                <!-- 菜单开始 -->
-                <div class="menubox jxui">
-                    <div class="top maxsize">
-                        <div class="Custom_AuxiliaryBg HeadBg"></div>
-                        <!-- LOGO -->
-                        <div class="logo fl">
-                            <div class="Themebg"></div>
-                            <div class="Gradient"></div>
-                            <!-- pc端logo -->
-                            <h1 class="logo_name">
-                                <span>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</span>
-                                <a href="{siteurl($siteid)}/" class="navbar-brand">
-                                    <img src="statics/chunxi/img/1ef81600f1333286cf0459e00f0f2668.jpg" alt="{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}">
-                                </a>
-                            </h1>
-                            <!-- 手机端logo -->
-                            <a class="navbar-brand-mobile" href="{siteurl($siteid)}/">
-                                <img src="statics/chunxi/img/1ef81600f1333286cf0459e00f0f2668.jpg" alt="{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}" style="">
-                            </a>
-                        </div>
-                        <!-- 搜索 -->
-                        <div class="search fr">
-                            <form class="navbar-form" role="search"
-                                  action="{siteurl($siteid)}/index.php?m=search" method="post">
-                                <div class="icon">
-                                    <img src="statics/chunxi/img/search.png" alt="">
-                                </div>
-                                <div class="text">
-                                    <div class="form-group">
-                                        <input class="searchinput" name="name" placeholder="请输入关键字..." type="text">
+
+<!-- 区块列表 1-->
+<div class="row clearfix tpl_four" id="md_tpl_four">
+    <div class="row column column1">
+        <div class="row clearfix tpl_five" name="md_tpl_five">
+            <div class="jxui">
+                <div class="maxsize">
+                    <div class="col-md-8 column column1">
+                        <div class="article">
+                            <!-- 文章列表开始 -->
+                            <div id="right_1">
+                                <div class="articles">
+                                    <div class="title">
+                                        <div class="con">
+                                            <div class="icon iconfont2 Themefont icon-mao">
+                                            </div>
+                                            <div class="text Themefont overflow" data-design-rel="article">
+                                                毕业论文
+                                            </div>
+                                            <div class="more">
+                                                <a class="Themetxthover"
+                                                   href="{siteurl($siteid)}/">更多>></a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="btn-group btn-search-group searchselect">
-                                        <button type="submit" class="Themebg btn btn-danger btn-search">全站搜索</button>
-                                        <button type="button" class="Themebg btn btn-danger dropdown-toggle"
-                                                data-toggle="dropdown"><span class="caret"></span></button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a title="全站搜索" href="javascript:;" data-role="webSearchUrl">全站搜索</a>
+                                    <div class="line"><span class="Themebg"></span></div>
+                                    <div class="content">
+                                        <ul class="caselist nowarpall">
+                                            {pc:content action="lists" catid="1" order="id DESC" num="5"}
+                                            {loop $data $key $val}
+                                            <li><a class="Themetxthover"
+                                                   href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}</span>
                                             </li>
-                                            <li><a href="javascript:;" data-role="productSearchUrl">产品搜索</a></li>
-                                            <li><a href="javascript:;" data-role="articleSearchUrl">文章搜索</a></li>
+                                            {/loop}
+                                            {/pc}
                                         </ul>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+                            <!-- 文章列表结束 -->
                         </div>
-                        <!-- 清除浮动 -->
-                        <div class="cl"></div>
-                    </div>
-                    <!-- 菜单列表 -->
-                    <div class="NavBtn " id="NavBtn">
-                        <span class="icon-bar Themebg"></span>
-                        <span class="icon-bar Themebg"></span>
-                        <span class="icon-bar Themebg"></span>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="menulist Themebg">
-                        <div data-design-rel="menu" class="NavBox">
-
-                            <ul class="nav navbar-nav">
-                                {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
-                                {loop $data $r}
-                                <li class="Themebghover">
-                                    <a class="overflow Themebghover Triangle"
-                                       href="{$r[url]}">
-                                        <div class="Gradient"></div>
-                                        <div class="Themebg"></div>
-                                        <span class="name">{$r[catname]}</span>
-                                    </a>
-
-                                    <span class="TriangleBtn"></span>
-
-                                    <ul>
-                                        {pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid" order="listorder ASC" return="sdata"}
-                                        {loop $sdata $sr}
-                                        <li class="Themebg Themebghover">
-                                            <a class="overflow" href="{$sr[url]}">
-                                                {$sr[catname]}
-                                            </a>
-                                        </li>
-                                        {/loop}
-                                        {/pc}
-                                    </ul>
-                                </li>
-                                {/loop}
-                                {/pc}
-                            </ul>
-                            <!-- 所有模板导航必须在这个文件里面 -->
-                        </div>
-                        <div class="NavBoxBg" id="NavBoxBg">
-                            <div id="NavBoxBtn"></div>
+                        <div class="article">
+                            <!-- 文章列表开始 -->
+                            <div id="right_2">
+                                <div class="articles">
+                                    <div class="title">
+                                        <div class="con">
+                                            <div class="icon iconfont2 Themefont icon-mao">
+                                            </div>
+                                            <div class="text Themefont overflow" data-design-rel="article">
+                                                职称论文
+                                            </div>
+                                            <div class="more">
+                                                <a class="Themetxthover"
+                                                   href="{siteurl($siteid)}/">更多>></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line"><span class="Themebg"></span></div>
+                                    <div class="content">
+                                        <ul class="caselist nowarpall">
+                                            {pc:content action="lists" catid="2" order="id DESC" num="5"}
+                                            {loop $data $key $val}
+                                            <li><a class="Themetxthover"
+                                                   href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}</span>
+                                            </li>
+                                            {/loop}
+                                            {/pc}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 文章列表结束 -->
                         </div>
                     </div>
+                    <div class="col-md-4 column column1">
+                        <div class="article">
+                            <!-- 文章列表开始 -->
+                            <div id="right_3">
+                                <div class="articles">
+                                    <div class="title">
+                                        <div class="con">
+                                            <div class="icon iconfont2 Themefont icon-mao">
+                                            </div>
+                                            <div class="text Themefont overflow" data-design-rel="article">
+                                                专利服务
+                                            </div>
+                                            <div class="more">
+                                                <a class="Themetxthover"
+                                                   href="{siteurl($siteid)}/">更多>></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line"><span class="Themebg"></span></div>
+                                    <div class="content">
+                                        <ul class="caselist nowarpall">
+                                            {pc:content action="lists" catid="3" order="id DESC" num="5"}
+                                            {loop $data $key $val}
+                                            <li><a class="Themetxthover"
+                                                   href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}</span>
+                                            </li>
+                                            {/loop}
+                                            {/pc}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 文章列表结束 -->
+                        </div>
+                        <div class="article">
+                            <!-- 文章列表开始 -->
+                            <div id="right_4">
+                                <div class="articles">
+                                    <div class="title">
+                                        <div class="con">
+                                            <div class="icon iconfont2 Themefont icon-mao">
+                                            </div>
+                                            <div class="text Themefont overflow" data-design-rel="article">
+                                                教育类刊物
+                                            </div>
+                                            <div class="more">
+                                                <a class="Themetxthover"
+                                                   href="{siteurl($siteid)}/">更多>></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line"><span class="Themebg"></span></div>
+                                    <div class="content">
+                                        <ul class="caselist nowarpall">
+                                            {pc:content action="lists" catid="4" order="id DESC" num="5"}
+                                            {loop $data $key $val}
+                                            <li><a class="Themetxthover"
+                                                   href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}</span>
+                                            </li>
+                                            {/loop}
+                                            {/pc}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 文章列表结束 -->
+                        </div>
+                    </div>
+                    <div class="cl"></div>
                 </div>
-                <!-- 菜单结束 -->
             </div>
         </div>
-    </div>
-    <div class="row clearfix tpl_two" id="md_tpl_two">
-        <div class="col-md-12">
-            <div class="column column1"></div>
-            <div class="col-md-12 column column1">
-                <div id="md_banner" class="banner">
-                    <div class="bannerbox ">
-                        <div class="maxsize">
-                            <div data-design-rel="banner" class="carousel slide" id="myCarousel">
 
-                                {pc:content  action="position" posid="1"  order="listorder DESC" thumb="1" num="5"}
-                                {loop $data $r}
-                                <div class="bannerEffect" id="pc_banner_content">
-                                    <div class="fullwidthbanner-container">
-                                        <div class="fullwidthbanner tp-simpleresponsive hovered" style="height: 322px;">
-                                            <ul>
-                                                <li data-transition="slideleft" data-slotamount="15"
-                                                    data-masterspeed="300"
-                                                    style="visibility: visible; left: 0px; top: 0px; z-index: 20; opacity: 1;">
-                                                    <div class="slotholder"><img
-                                                            src="{thumb($r['thumb'],1030,322)}" alt=""
-                                                            class="defaultimg"
-                                                            style="width: 1030px; height: 322px; position: absolute; top: 0px; opacity: 1;">
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <div class="tp-loader" style="display: none;"></div>
-                                            <div class="tp-bannertimer" style="visibility: hidden; width: 0%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {/loop}
-                                {/pc}
-
+        <!-- 关于我们开始 -->
+        <div class="about" id="md_about">
+            <div class="jxui about">
+                <div class="maxsize">
+                    <div class="title">
+                        <div class="con">
+                            <div class="icon iconfont2 Themefont icon-mao"></div>
+                            <div class="text Themefont overflow" data-design-rel="about">
+                                公司简介
                             </div>
-                            <div class="bannershadow"></div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row clearfix tpl_four" id="md_tpl_four">
-        <div class="row column column1">
-            <div class="row clearfix tpl_five" id="md_tpl_five">
-                <div class="jxui">
-                    <div class="maxsize">
-                        <div class="col-md-8 column column1">
-                            <div class="article" id="md_article" dataid="60746">
-                                <!-- 文章列表开始 -->
-                                <div id="right">
-                                    <div class="articles" id="">
-                                        <div class="title">
-                                            <div class="con">
-                                                <div class="icon iconfont2 Themefont icon-mao">
-                                                </div>
-                                                <div class="text Themefont overflow" data-design-rel="article">
-                                                    毕业论文
-                                                </div>
-                                                <div class="more">
-                                                    <a class="Themetxthover"
-                                                       href="http://www.zzwentong.com/Articles-60746.html">更多>></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="line"><span class="Themebg"></span></div>
-                                        <div class="content">
-                                            <ul class="caselist nowarpall">
-                                                {pc:content  action="lists" catid="1" order="id DESC" num="5"}
-                                                {loop $data $key $val}
-                                                <li><a class="Themetxthover"
-                                                       href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}}</span>
-                                                </li>
-                                                {/loop}
-                                                {/pc}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- 联系 -->
-                                    <div class="contactus">
-                                        <div class="title">
-                                            <div class="con">
-                                                <div class="icon iconfont2 Themefont icon-mao">
-                                                </div>
-                                                <div class="text Themefont overflow">
-                                                    联系我们
-                                                </div>
-                                                <div class="more">
-                                                    <a class="Themetxthover"
-                                                       href="http://www.zzwentong.com/Company-contact.html">更多>></a>
-                                                </div>
-                                            </div>
-                                            <div class="line"><span class="Themebg"></span></div>
-                                            <div class="content">
-                                                <a href="javascript:vido(0)"
-                                                   onclick="window.location.href='mailto:120581375@qq.com'">
-                                                    <div class="mod fl Themebg" id="icon_1"></div>
-                                                </a>
-                                                <a href="http://www.zzwentong.com/Contact.html">
-                                                    <div class="mod fl Themebg" id="icon_2"></div>
-                                                </a>
-                                                <a href="http://www.zzwentong.com/Lbs.html">
-                                                    <div class="mod fl Themebg" id="icon_3"></div>
-                                                </a>
-                                                <a href="http://www.zzwentong.com/Feedback-index.html">
-                                                    <div class="mod fl Themebg" id="icon_4"></div>
-                                                </a>
-                                                <div class="cl"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 联系结束 -->
-                                <!-- 文章列表结束 -->
-                            </div>
-                            <div class="article" id="md_article" dataid="60249">
-                                <!-- 文章列表开始 -->
-                                <div id="right">
-                                    <div class="articles" id="">
-                                        <div class="title">
-                                            <div class="con">
-                                                <div class="icon iconfont2 Themefont icon-mao">
-                                                </div>
-                                                <div class="text Themefont overflow" data-design-rel="article">
-                                                    职称论文
-                                                </div>
-                                                <div class="more">
-                                                    <a class="Themetxthover"
-                                                       href="http://www.zzwentong.com/Articles-60249.html">更多>></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="line"><span class="Themebg"></span></div>
-                                        <div class="content">
-                                            <ul class="caselist nowarpall">
-                                                {pc:content  action="lists" catid="2" order="id DESC" num="5"}
-                                                {loop $data $key $val}
-                                                <li><a class="Themetxthover"
-                                                       href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}}</span>
-                                                </li>
-                                                {/loop}
-                                                {/pc}
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                <!-- 文章列表结束 -->
-                            </div>
+                    <div class="line"><span class="Themebg"></span></div>
+                    <div class="aboutcontainer clearfix">
+                        <div class="face">
+                            <img src="statics/chunxi/img/fd12acbfb77950d2d1fef82999673663.jpg" alt="">
                         </div>
-                        <div class="col-md-4 column column1">
-                            <div class="article" id="md_article" dataid="60747">
-                                <!-- 文章列表开始 -->
-                                <div id="right">
-                                    <div class="articles" id="">
-                                        <div class="title">
-                                            <div class="con">
-                                                <div class="icon iconfont2 Themefont icon-mao">
-                                                </div>
-                                                <div class="text Themefont overflow" data-design-rel="article">
-                                                    专利服务
-                                                </div>
-                                                <div class="more">
-                                                    <a class="Themetxthover"
-                                                       href="http://www.zzwentong.com/Articles-60747.html">更多>></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="line"><span class="Themebg"></span></div>
-                                        <div class="content">
-                                            <ul class="caselist nowarpall">
-                                                {pc:content  action="lists" catid="3" order="id DESC" num="5"}
-                                                {loop $data $key $val}
-                                                <li><a class="Themetxthover"
-                                                       href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}}</span>
-                                                </li>
-                                                {/loop}
-                                                {/pc}
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                <!-- 文章列表结束 -->
-                            </div>
-                            <div class="article" id="md_article" dataid="60729">
-                                <!-- 文章列表开始 -->
-                                <div id="right">
-                                    <div class="articles" id="">
-                                        <div class="title">
-                                            <div class="con">
-                                                <div class="icon iconfont2 Themefont icon-mao">
-                                                </div>
-                                                <div class="text Themefont overflow" data-design-rel="article">
-                                                    教育类刊物
-                                                </div>
-                                                <div class="more">
-                                                    <a class="Themetxthover"
-                                                       href="http://www.zzwentong.com/Articles-60729.html">更多>></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="line"><span class="Themebg"></span></div>
-                                        <div class="content">
-                                            <ul class="caselist nowarpall">
-                                                {pc:content  action="lists" catid="4" order="id DESC" num="5"}
-                                                {loop $data $key $val}
-                                                <li><a class="Themetxthover"
-                                                       href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}}</span>
-                                                </li>
-                                                {/loop}
-                                                {/pc}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <!-- 文章列表结束 -->
-                            </div>
-                        </div>
-                        <div class="cl"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="about" id="md_about">            <!-- 关于我们开始 -->
-                <div class="jxui about">
-                    <div class="maxsize">
-                        <div class="title">
-                            <div class="con">
-                                <div class="icon iconfont2 Themefont icon-mao"></div>
-                                <div class="text Themefont overflow" data-design-rel="about">
-                                    公司简介
-                                </div>
-                            </div>
-                        </div>
-                        <div class="line"><span class="Themebg"></span></div>
-                        <div class="aboutcontainer clearfix">
-                            <div class="face">
-                                <img src="statics/chunxi/img/fd12acbfb77950d2d1fef82999673663.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <div class="aboutText"><p
-                                        style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)"><span
-                                        style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px"><span
-                                        style="font-family:宋体">郑州文通文化传播公司</span>成
-立以来，经过长期的深厚积累，沉稳发展，现在已经成为一支拥有强大教授及博士写作团队和编辑团队的颇具规模的论文指导和论文发表机构，主要提供各类专业的
+                        <div class="info">
+                            <div class="aboutText">
+                                <p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)">
+                                        <span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px">
+                                            <span style="font-family:宋体">郑州文通文化传播公司</span>
+                                            成立以来，经过长期的深厚积累，沉稳发展，现在已经成为一支拥有强大教授及博士写作团队和编辑团队的颇具规模的论文指导和论文发表机构，主要提供各类专业的
 博士论文，硕士论文以及本专科论文指导，代发职称论文（省级期刊，期刊，核心期刊，及某些大学学报）等相关论文服务(国内外论文资料代查,英文摘要翻译
 等)。论文服务科目主要包含：经济管理、人文社科、医学化工类、计算机应用与技术、软件工程、工程硕士、机械与动力工程、建筑土木、房地产、管理项目、经
 济金融会计、英语、教育教学、心理学、历史等等。我们拥有强大的写作团队，经过长期累积，指导老师有丰富的写作经验，并且与我们合作的老师主要来自于国内
-211，985的大学。</span></p>
-                                    <p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)">
-                                        <span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px"><span
-                                                style="font-family:宋体">在论文指导方面，我们经过长时间的良好发展，积聚了大量的外部人才和资源，目前专门辅导老师达百余位。我们承诺论文指导到通过为止，我们不会让您的论文后期无人负责，您只需要把论文交给我们，其他的只需反馈老师的指导意见即可。</span></span>
-                                    </p>
-                                    <p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)">
-                                        <span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px"><span
-                                                style="font-family:宋体">在发表论文方面，本站现在已拥有多家省级，，核心级期刊代理权；从</span>起步到现在已建立了完善的发表体系，无一不显示出了严谨，求实的态度。时刻想着为客户提供最优秀的文章，保证客户按时发表，顺利毕业取得学位；也为晋升职称的客户推荐最适合的发表期刊，我们以实际效果赢得了客户好的好评；多年品质保证，是一家值得信赖的论文发表机构。</span>
-                                    </p>
-                                    <p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)">
-                                        <span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px"><span
-                                                style="font-family:宋体">此外，所有导师最不能容忍的就是学生抄袭，在这里，我们郑重承诺我们的论文都是根据您的要求制定，确保论文原创，质量有保证，并且提供修改服务直到您的指导老师认可通过为止；通过后，我们将立即销毁，保证论文版权属于您自己所有。</span></span>
-                                    </p>
-                                    <p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)"><span
-                                            style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px"><span
-                                            style="font-family:宋体">耐
-心的服务是售后的基本素质，快捷的回复是售后的工作效率，及时的沟通是售后的认真态度。在论文写作过程中，每一位客户都可以随时查询论文进度，并进行意见
+211，985的大学。
+                                        </span>
+                                </p>
+                                <p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)">
+                                        <span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px">
+                                            <span style="font-family:宋体">
+                                                在论文指导方面，我们经过长时间的良好发展，积聚了大量的外部人才和资源，目前专门辅导老师达百余位。我们承诺论文指导到通过为止，我们不会让您的论文后期无人负责，您只需要把论文交给我们，其他的只需反馈老师的指导意见即可。
+                                            </span>
+                                        </span>
+                                </p>
+                                <p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)">
+                                        <span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px">
+                                            <span style="font-family:宋体">
+                                                在发表论文方面，本站现在已拥有多家省级，，核心级期刊代理权；从
+                                            </span>
+                                            起步到现在已建立了完善的发表体系，无一不显示出了严谨，求实的态度。时刻想着为客户提供最优秀的文章，保证客户按时发表，顺利毕业取得学位；也为晋升职称的客户推荐最适合的发表期刊，我们以实际效果赢得了客户好的好评；多年品质保证，是一家值得信赖的论文发表机构。
+                                        </span>
+                                </p>
+                                <p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)">
+                                        <span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px">
+                                            <span style="font-family:宋体">
+                                                此外，所有导师最不能容忍的就是学生抄袭，在这里，我们郑重承诺我们的论文都是根据您的要求制定，确保论文原创，质量有保证，并且提供修改服务直到您的指导老师认可通过为止；通过后，我们将立即销毁，保证论文版权属于您自己所有。
+                                            </span>
+                                        </span>
+                                </p>
+                                <p style=";text-indent: 28px;padding: 0;line-height: 24px;background: rgb(255, 255, 255)">
+                                        <span style="font-family: 宋体;color: rgb(51, 51, 51);letter-spacing: 0;font-size: 13px">
+                                            <span style="font-family:宋体">
+                                                耐心的服务是售后的基本素质，快捷的回复是售后的工作效率，及时的沟通是售后的认真态度。在论文写作过程中，每一位客户都可以随时查询论文进度，并进行意见
 反馈，沟通交流，我们会以最快的时间给您一个满意的答复。如果您选择我们为您的毕业论文，职称论文保驾护航，最明智的选择，我们将问您排忧解难，为您提供
-业内最优质的论文指导和论文发表服务！</span></span></p>
-                                    <p><br></p></div>
-                                <a href="http://www.zzwentong.com/About.html" class="Themebg Themebghover btn btn-more"
-                                   role="button">查看详情</a>
+业内最优质的论文指导和论文发表服务！
+                                            </span>
+                                        </span>
+                                </p>
+                                <p><br></p>
                             </div>
+                            <a href="{siteurl($siteid)}" class="Themebg Themebghover btn btn-more" role="button">查看详情</a>
                         </div>
                     </div>
-                </div>
-                <!-- 关于我们结束 -->
-            </div>
-        </div>
-    </div>
-    <div class="row clearfix tpl_five" id="md_tpl_five">
-        <div class="jxui">
-            <div class="maxsize">
-                <div class="col-md-8 column column1">
-                    <div class="article" id="md_article" dataid="60740">
-                        <!-- 文章列表开始 -->
-                        <div id="right">
-                            <div class="articles" id="">
-                                <div class="title">
-                                    <div class="con">
-                                        <div class="icon iconfont2 Themefont icon-mao">
-                                        </div>
-                                        <div class="text Themefont overflow" data-design-rel="article">
-                                            学报类刊物
-                                        </div>
-                                        <div class="more">
-                                            <a class="Themetxthover"
-                                               href="http://www.zzwentong.com/Articles-60740.html">更多>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="line"><span class="Themebg"></span></div>
-                                <div class="content">
-                                    <ul class="caselist nowarpall">
-                                        {pc:content  action="lists" catid="5" order="id DESC" num="5"}
-                                        {loop $data $key $val}
-                                        <li><a class="Themetxthover"
-                                               href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}}</span>
-                                        </li>
-                                        {/loop}
-                                        {/pc}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 文章列表结束 -->
-                    </div>
-                    <div class="article" id="md_article" dataid="60732">
-                        <!-- 文章列表开始 -->
-                        <div id="right">
-                            <div class="articles" id="">
-                                <div class="title">
-                                    <div class="con">
-                                        <div class="icon iconfont2 Themefont icon-mao">
-                                        </div>
-                                        <div class="text Themefont overflow" data-design-rel="article">
-                                            医学类刊物
-                                        </div>
-                                        <div class="more">
-                                            <a class="Themetxthover"
-                                               href="http://www.zzwentong.com/Articles-60732.html">更多>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="line"><span class="Themebg"></span></div>
-                                <div class="content">
-                                    <ul class="caselist nowarpall">
-                                        {pc:content  action="lists" catid="6" order="id DESC" num="5"}
-                                        {loop $data $key $val}
-                                        <li><a class="Themetxthover"
-                                               href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}}</span>
-                                        </li>
-                                        {/loop}
-                                        {/pc}
-                                    </ul>
-                                </div>
-                            </div>
-                        <!-- 文章列表结束 -->
-                    </div>
-                </div>
-                <div class="col-md-4 column column1">
-                    <div class="article" id="md_article" dataid="60741">
-                        <!-- 文章列表开始 -->
-                        <div id="right">
-                            <div class="articles" id="">
-                                <div class="title">
-                                    <div class="con">
-                                        <div class="icon iconfont2 Themefont icon-mao">
-                                        </div>
-                                        <div class="text Themefont overflow" data-design-rel="article">
-                                            新闻类刊物
-                                        </div>
-                                        <div class="more">
-                                            <a class="Themetxthover"
-                                               href="http://www.zzwentong.com/Articles-60741.html">更多>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="line"><span class="Themebg"></span></div>
-                                <div class="content">
-                                    <ul class="caselist nowarpall">
-                                        {pc:content  action="lists" catid="7" order="id DESC" num="5"}
-                                        {loop $data $key $val}
-                                        <li><a class="Themetxthover"
-                                               href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}}</span>
-                                        </li>
-                                        {/loop}
-                                        {/pc}
-                                    </ul>
-                                </div>
-                            </div>
-                        <!-- 文章列表结束 -->
-                    </div>
-                    <div class="article" id="md_article" dataid="60734">
-                        <!-- 文章列表开始 -->
-                        <div id="right">
-                            <div class="articles" id="">
-                                <div class="title">
-                                    <div class="con">
-                                        <div class="icon iconfont2 Themefont icon-mao">
-                                        </div>
-                                        <div class="text Themefont overflow" data-design-rel="article">
-                                            北大核心类
-                                        </div>
-                                        <div class="more">
-                                            <a class="Themetxthover"
-                                               href="http://www.zzwentong.com/Articles-60734.html">更多>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="line"><span class="Themebg"></span></div>
-                                <div class="content">
-                                    <ul class="caselist nowarpall">
-                                        {pc:content  action="lists" catid="8" order="id DESC" num="5"}
-                                        {loop $data $key $val}
-                                        <li><a class="Themetxthover"
-                                               href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}}</span>
-                                        </li>
-                                        {/loop}
-                                        {/pc}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 联系结束 -->
-                        <!-- 文章列表结束 -->
-                    </div>
-                </div>
-                <div class="cl"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row clearfix tpl_footers" id="md_tpl_footers">
-        <div class="jxui">
-            <div class="links column column1">
-                <div class="friendLink jxui" id="md_friendLink">
-                    <div class="Themebg friendBox">
-                        <div class="maxsize">
-                            <div class="con">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="foot column column1">
-                <div class="footers" id="md_footers">
-                    <div class="maxsize">
-                        <div class="con">
-                            <div class="clearfix">
-                                <div class="footersInformation">
-                                    <p><br></p>
-                                    <style type="text/css">.contactus {
-                                        display: none;
-                                    }
-
-                                    .menu .nav > li {
-                                        width: 14%;
-                                    }
-
-                                    .article .title .con {
-                                        position: relative;
-                                    }
-
-                                    .menu .nav > li .Triangle:after {
-                                        border-top: 0px solid #000;
-                                    }</style>
-                                    <p>
-                                        <!--    CopyRight © All Right Reserved 版权所有:-->
-                                        CopyRight © 版权所有:
-                                        <a title="{$SEO['site_title']}" class="Themefont" href="{siteurl($siteid)}/">{$SEO['site_title']}</a>
-                                    </p>
-                                    <p>
-                                    </p>
-                                </div>
-
-                                <div class="qr">
-                                    <img src="data:;base64,iVBORw0KGgoAAAANSUhEUgAAAFEAAABRAQMAAACQQdh1AAAABlBMVEX///8AAABVwtN+AAAA10lEQVQokY3SsQ2EMAwFUCOKdLCApayRLivBAhcmCCvRZQ0kJqBLEeFz7k5UsQ8LRY8q33YAHpQl6heHgYpsBGNX2ieG7JD6y5SZdNvo/xrmjLrB4OTvDE1zfpzT3UvTtboN71m0bCnRSX10u2wA1y9gIyjmIfCsiHKRjeN2XIbipxfJ4XNpSEXx4I4z87krHskuntbvvYIHV+cwONTsoeP8CWTXX15KR4rrXsa63yKb9wsvg11GxaEulwt0z5mzFd2Tp2hQMb//xdR4sjk/fzD+emn6Qb0BvGVCVHGgdOIAAAAASUVORK5CYII=">
-                                    <br>
-                                    <div class="Attention">扫一扫访问移动端</div>
-                                    <div class="Big">
-                                        <img src="data:;base64,iVBORw0KGgoAAAANSUhEUgAAAFEAAABRAQMAAACQQdh1AAAABlBMVEX///8AAABVwtN+AAAA10lEQVQokY3SsQ2EMAwFUCOKdLCApayRLivBAhcmCCvRZQ0kJqBLEeFz7k5UsQ8LRY8q33YAHpQl6heHgYpsBGNX2ieG7JD6y5SZdNvo/xrmjLrB4OTvDE1zfpzT3UvTtboN71m0bCnRSX10u2wA1y9gIyjmIfCsiHKRjeN2XIbipxfJ4XNpSEXx4I4z87krHskuntbvvYIHV+cwONTsoeP8CWTXX15KR4rrXsa63yKb9wsvg11GxaEulwt0z5mzFd2Tp2hQMb//xdR4sjk/fzD+emn6Qb0BvGVCVHGgdOIAAAAASUVORK5CYII="
-                                             style="">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <script type="text/javascript" src="statics/chunxi/js/500436123.json"></script>
                 </div>
             </div>
         </div>
+        <!-- 关于我们结束 -->
     </div>
-</div><!--banner效果插件-->
+</div>
+
+<!-- 区块列表 2-->
+<div class="row clearfix tpl_five" id="md_tpl_five">
+    <div class="jxui">
+        <div class="maxsize">
+            <div class="col-md-8 column column1">
+                <div class="article">
+                    <!-- 文章列表开始 -->
+                    <div id="right_5">
+                        <div class="articles">
+                            <div class="title">
+                                <div class="con">
+                                    <div class="icon iconfont2 Themefont icon-mao">
+                                    </div>
+                                    <div class="text Themefont overflow" data-design-rel="article">
+                                        学报类刊物
+                                    </div>
+                                    <div class="more">
+                                        <a class="Themetxthover"
+                                           href="{siteurl($siteid)}/">更多>></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line"><span class="Themebg"></span></div>
+                            <div class="content">
+                                <ul class="caselist nowarpall">
+                                    {pc:content action="lists" catid="5" order="id DESC" num="5"}
+                                    {loop $data $key $val}
+                                    <li>
+                                        <a class="Themetxthover" href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}</span>
+                                    </li>
+                                    {/loop}
+                                    {/pc}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 文章列表结束 -->
+                </div>
+
+                <div class="article">
+                    <!-- 文章列表开始 -->
+                    <div id="right_6">
+                        <div class="articles">
+                            <div class="title">
+                                <div class="con">
+                                    <div class="icon iconfont2 Themefont icon-mao">
+                                    </div>
+                                    <div class="text Themefont overflow" data-design-rel="article">
+                                        医学类刊物
+                                    </div>
+                                    <div class="more">
+                                        <a class="Themetxthover"
+                                           href="{siteurl($siteid)}/">更多>></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line"><span class="Themebg"></span></div>
+                            <div class="content">
+                                <ul class="caselist nowarpall">
+                                    {pc:content action="lists" catid="6" order="id DESC" num="5"}
+                                    {loop $data $key $val}
+                                    <li>
+                                        <a class="Themetxthover" href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}</span>
+                                    </li>
+                                    {/loop}
+                                    {/pc}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 文章列表结束 -->
+                </div>
+            </div>
+            <div class="col-md-4 column column1">
+                <div class="article">
+                    <!-- 文章列表开始 -->
+                    <div id="right_7">
+                        <div class="articles">
+                            <div class="title">
+                                <div class="con">
+                                    <div class="icon iconfont2 Themefont icon-mao">
+                                    </div>
+                                    <div class="text Themefont overflow" data-design-rel="article">
+                                        新闻类刊物
+                                    </div>
+                                    <div class="more">
+                                        <a class="Themetxthover" href="{siteurl($siteid)}/">更多>></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line"><span class="Themebg"></span></div>
+                            <div class="content">
+                                <ul class="caselist nowarpall">
+                                    {pc:content action="lists" catid="7" order="id DESC" num="5"}
+                                    {loop $data $key $val}
+                                    <li><a class="Themetxthover" href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}</span>
+                                    </li>
+                                    {/loop}
+                                    {/pc}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 文章列表结束 -->
+                </div>
+                <div class="article">
+                    <!-- 文章列表开始 -->
+                    <div id="right_8">
+                        <div class="articles" id="">
+                            <div class="title">
+                                <div class="con">
+                                    <div class="icon iconfont2 Themefont icon-mao">
+                                    </div>
+                                    <div class="text Themefont overflow" data-design-rel="article">
+                                        北大核心类
+                                    </div>
+                                    <div class="more">
+                                        <a class="Themetxthover"
+                                           href="{siteurl($siteid)}/">更多>></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line"><span class="Themebg"></span></div>
+                            <div class="content">
+                                <ul class="caselist nowarpall">
+                                    {pc:content action="lists" catid="8" order="id DESC" num="5"}
+                                    {loop $data $key $val}
+                                    <li><a class="Themetxthover"
+                                           href="{$val['url']}">{$val['title']}</a><span>{$val['inputtime']}</span>
+                                    </li>
+                                    {/loop}
+                                    {/pc}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 文章列表结束 -->
+                </div>
+            </div>
+            <div class="cl"></div>
+        </div>
+    </div>
+</div>
+
 
 {template "content","footer"}

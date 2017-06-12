@@ -16,19 +16,38 @@
     <meta name="keywords" content="{$SEO['keyword']}">
     <meta name="description" content="{$SEO['description']}">
     <!--引导页加载-->
-    <link href="statics/chunxi/css/guidestyle.css" rel="stylesheet">
-    <link href="statics/chunxi/css/p_mb.css" rel="stylesheet">
-    <link href="statics/chunxi/css/bootstrap.css" rel="stylesheet">
-    <link href="statics/chunxi/css/public.css" rel="stylesheet">
-    <link href="statics/chunxi/css/banner.css" rel="stylesheet">
-    <link rel="stylesheet" href="statics/chunxi/css/style.css">
-    <link rel="stylesheet" type="text/css" href="statics/chunxi/css/custom.css">
+    <link href="/statics/chunxi/css/guidestyle.css" rel="stylesheet">
+    <link href="/statics/chunxi/css/p_mb.css" rel="stylesheet">
+    <link href="/statics/chunxi/css/bootstrap.css" rel="stylesheet">
+    <link href="/statics/chunxi/css/public.css" rel="stylesheet">
+    <link href="/statics/chunxi/css/banner.css" rel="stylesheet">
+    <link rel="stylesheet" href="/statics/chunxi/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/statics/chunxi/css/custom.css">
     <!--<style>-->
-    <link rel="stylesheet" href="statics/chunxi/css/customer_index_500436123.css">
+    <link rel="stylesheet" href="/statics/chunxi/css/customer_index_500436123.css">
     <!--        </style>--><!-- 首页必须加载样式的style层，不可以删除 -->
-    <script href="statics/chunxi/js/jquery_002.js"></script>
-    <script href="statics/chunxi/js/share.js"></script>
-    <link rel="stylesheet" href="statics/chunxi/css/share_style0_24.css">
+    <script href="/statics/chunxi/js/jquery_002.js"></script>
+    <script href="/statics/chunxi/js/share.js"></script>
+    <link rel="stylesheet" href="/statics/chunxi/css/share_style0_24.css">
+
+    <!-- list -->
+    <link rel="stylesheet" href="/statics/chunxi/css/detail_leftUpdown_500436123.css">
+    <link rel="stylesheet" href="/statics/chunxi/css/photoswipe.css">
+    <link rel="stylesheet" href="/statics/chunxi/css/layoutit.css">
+    <style type="text/css">
+        .contactus {
+            display: none;
+        }
+        .menu .nav > li {
+            width: 14%;
+        }
+        .article .title .con {
+            position: relative;
+        }
+        .menu .nav > li .Triangle:after {
+            border-top: 0px solid #000;
+        }
+    </style>
 </head>
 <body id="body" style="overflow-x:hidden; overflow-y: scroll;outline: none;" class="userBlock  Pagebg">
 <!--顶部提示-->
@@ -73,3 +92,157 @@
 
 
 </script>
+
+<div class="container">
+    <!-- 菜单 -->
+    <div class="row clearfix tpl_one" id="md_tpl_one">
+        <div class="col-md-12 column  column1">
+            <div class="menu" id="md_menu">
+                <div id="css_style"><!-- 该div层是用来替换为内页的css的，必须放在这里 --></div>
+                <!-- 菜单开始 -->
+                <div class="menubox jxui">
+                    <div class="top maxsize">
+                        <div class="Custom_AuxiliaryBg HeadBg"></div>
+                        <!-- LOGO -->
+                        <div class="logo fl">
+                            <div class="Themebg"></div>
+                            <div class="Gradient"></div>
+                            <!-- pc端logo -->
+                            <h1 class="logo_name">
+                                <span>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</span>
+                                <a href="{siteurl($siteid)}/" class="navbar-brand">
+                                    <img src="/statics/chunxi/img/1ef81600f1333286cf0459e00f0f2668.jpg"
+                                         alt="{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}">
+                                </a>
+                            </h1>
+                        </div>
+                        <!-- 搜索 -->
+                        <div class="search fr">
+                            <form class="navbar-form" role="search"
+                                  action="{siteurl($siteid)}/index.php?m=search" method="post">
+                                <div class="icon">
+                                    <img src="/statics/chunxi/img/search.png" alt="">
+                                </div>
+                                <div class="text">
+                                    <div class="form-group">
+                                        <input class="searchinput" name="name" placeholder="请输入关键字..." type="text">
+                                    </div>
+                                    <div class="btn-group btn-search-group searchselect">
+                                        <button type="submit" class="Themebg btn btn-danger btn-search">全站搜索</button>
+                                        <button type="button" class="Themebg btn btn-danger dropdown-toggle"
+                                                data-toggle="dropdown"><span class="caret"></span></button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a title="全站搜索" href="javascript:;" data-role="webSearchUrl">全站搜索</a>
+                                            </li>
+                                            <li><a href="javascript:;" data-role="productSearchUrl">产品搜索</a></li>
+                                            <li><a href="javascript:;" data-role="articleSearchUrl">文章搜索</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- 清除浮动 -->
+                        <div class="cl"></div>
+                    </div>
+                    <!-- 菜单列表 -->
+                    <div class="NavBtn " id="NavBtn">
+                        <span class="icon-bar Themebg"></span>
+                        <span class="icon-bar Themebg"></span>
+                        <span class="icon-bar Themebg"></span>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="menulist Themebg">
+                        <div data-design-rel="menu" class="NavBox">
+
+                            <ul class="nav navbar-nav">
+                                <li class="Themebghover">
+                                    <a class="overflow Themebghover Triangle"
+                                       href="/">
+                                        <div class="Gradient"></div>
+                                        <div class="Themebg"></div>
+                                        <span class="name">首页</span>
+                                    </a>
+
+                                    <span class="TriangleBtn"></span>
+                                </li>
+                                {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+                                {loop $data $r}
+                                <li class="Themebghover">
+                                    <a class="overflow Themebghover Triangle"
+                                       href="{$r[url]}">
+                                        <div class="Gradient"></div>
+                                        <div class="Themebg"></div>
+                                        <span class="name">{$r[catname]}</span>
+                                    </a>
+
+                                    <span class="TriangleBtn"></span>
+
+                                    <ul>
+                                        {pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid"
+                                        order="listorder ASC" return="sdata"}
+                                        {loop $sdata $sr}
+                                        <li class="Themebg Themebghover">
+                                            <a class="overflow" href="{$sr[url]}">
+                                                {$sr[catname]}
+                                            </a>
+                                        </li>
+                                        {/loop}
+                                        {/pc}
+                                    </ul>
+                                </li>
+                                {/loop}
+                                {/pc}
+                            </ul>
+                            <!-- 所有模板导航必须在这个文件里面 -->
+                        </div>
+                        <div class="NavBoxBg" id="NavBoxBg">
+                            <div id="NavBoxBtn"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 菜单结束 -->
+            </div>
+        </div>
+    </div>
+    <!-- 焦点图 -->
+    <div class="row clearfix tpl_two" id="md_tpl_two">
+        <div class="col-md-12">
+            <div class="column column1"></div>
+            <div class="col-md-12 column column1">
+                <div id="md_banner" class="banner">
+                    <div class="bannerbox ">
+                        <div class="maxsize">
+                            <div data-design-rel="banner" class="carousel slide" id="myCarousel">
+
+                                {pc:content action="position" posid="1" order="listorder DESC" thumb="1" num="5"}
+                                {loop $data $r}
+                                <div class="bannerEffect" id="pc_banner_content">
+                                    <div class="fullwidthbanner-container">
+                                        <div class="fullwidthbanner tp-simpleresponsive hovered" style="height: 322px;">
+                                            <ul>
+                                                <li data-transition="slideleft" data-slotamount="15"
+                                                    data-masterspeed="300"
+                                                    style="visibility: visible; left: 0px; top: 0px; z-index: 20; opacity: 1;">
+                                                    <div class="slotholder"><img
+                                                            src="{thumb($r['thumb'],1030,322)}" alt=""
+                                                            class="defaultimg"
+                                                            style="width: 1030px; height: 322px; position: absolute; top: 0px; opacity: 1;">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="tp-loader" style="display: none;"></div>
+                                            <div class="tp-bannertimer" style="visibility: hidden; width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/loop}
+                                {/pc}
+
+                            </div>
+                            <div class="bannershadow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

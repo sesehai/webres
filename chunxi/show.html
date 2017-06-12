@@ -1,0 +1,62 @@
+{template "content","header"}
+
+<div class="content-box clearfix">
+    <div class="body-left designStage column column1">
+        <div class="column mb12 column1" id="md_detailArticleClass">
+            <div class="row clearfix info_class_x mb12">
+                <div class="title_n ThemeFborder">
+                    <div class="con">
+                        <div class="icon iconfont2 icon-mao Themefont"></div>
+                        <div class="text Themefont overflow" data-design-rel="detailArticleClass">
+                            资讯分类
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-box">
+                    {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+                    {loop $data $r}
+                    <a title="{$r[catname]}" href="{$r[url]}" class="Themebghover overflow ">{$r[catname]}</a>
+                    {/loop}
+                    {/pc}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="designStage column body-right selected column1">
+        <div id="md_content" class="about mt15 dontclear"><!--面包屑-->
+            <div class="breadCrumb ThemeFborder">
+                <b>您当前的位置：</b><a href="{siteurl($siteid)}">首页</a><em>></em> {catpos($catid)} 正文
+            </div>
+            <!--文章详情-->
+            <div class="row">
+                <div class="news-nr-box">
+                    <h3>{$title}</h3>
+                    <h6><span>{$inputtime}&nbsp;&nbsp;&nbsp;来源：{$copyfrom}&nbsp;&nbsp;&nbsp;评论：<a href="#comment_iframe" id="comment">0</a> 点击：</span><span id="hits"></span></h6>
+                    {if $description}<div class="summary" >{$description}</div>{/if}
+
+                    <div class="content">
+                        {$content}
+                    </div>
+
+                </div>
+                <div class="pager ks-clear">
+                    <div class="previous fl">
+                        <strong>上一篇：</strong><a href="{$previous_page[url]}">{$previous_page[title]}</a><br />
+                        <strong>下一篇：</strong><a href="{$next_page[url]}">{$next_page[title]}</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!--关键词-->
+                <div class="pro_keyword">
+                    关键词：
+                    {loop $keywords $keyword}<a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" class="blue">{$keyword}</a> 	{/loop}
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+{template "content","footer"}

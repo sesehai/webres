@@ -1,0 +1,62 @@
+{template "content","header"}
+
+<div class="clearfix"></div>
+<div class="content-box clearfix">
+    <div class="body-left designStage column column1">
+        <div class="column mb12 column1" id="md_detailArticleClass">
+            <div class="row clearfix info_class_x mb12">
+                <div class="title_n ThemeFborder">
+                    <div class="con">
+                        <div class="icon iconfont2 icon-mao Themefont"></div>
+                        <div class="text Themefont overflow" data-design-rel="detailArticleClass">
+                            资讯分类
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-box">
+                    {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+                    {loop $data $r}
+                    <a title="{$r[catname]}" href="{$r[url]}" class="Themebghover overflow ">{$r[catname]}</a>
+                    {/loop}
+                    {/pc}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="designStage column body-right selected column1">
+        <!--面包屑-->
+        <div id="md_content" class="about mt15 dontclear">
+            <div class="breadCrumb ThemeFborder">
+                <b>您当前的位置：</b><a href="#">首页</a>
+                <em>></em> <a href="" class="Themefont">{catpos($catid)} 列表</a>
+            </div>
+            <!--文章列表-->
+            <div class="row">
+                {pc:content action="lists" catid="$catid" num="25" order="id DESC" page="$page"}
+                <ul class="nlist-box ">
+                    {loop $data $r}
+                    <li>
+                        <a title="{$r['title']}" class="Themetxthover" href="{$r['url']}">
+                            {$r['title']}
+                        </a>
+                        <span>{date('Y-m-d', $r['inputtime'])}</span>
+                    </li>
+                    {/loop}
+                </ul>
+                <div class="page">
+                    <div class="col-lg-3">{$pages}</div>
+                    <div class="col-lg-9 pull-right">
+                        <ul class="pagination"></ul>
+                    </div>
+                </div>
+                {/pc}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+
+{template "content","footer"}
